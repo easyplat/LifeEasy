@@ -18,4 +18,19 @@
  	<servlet-name>LifeEasy</servlet-name>
  	<url-pattern>/</url-pattern>
  </servlet-mapping>
+ 
+<!-- <servlet>
+	<servlet-name>druid</servlet-name>
+	<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	<init-param>  
+            <param-name>exclusions</param-name>  
+            <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>  
+        </init-param>  
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>druid</servlet-name>
+	<url-pattern>/druid/*</url-pattern>
+</servlet-mapping> -->
+
 </web-app>

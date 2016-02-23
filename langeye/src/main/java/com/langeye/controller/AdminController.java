@@ -1,5 +1,7 @@
 package com.langeye.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-
+		
 		return "index";
 	}
 
@@ -24,10 +26,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(@ModelAttribute("user") User user) {
+	public String loginPost(@ModelAttribute("user") User user,HttpSession session) {
 		if (user.getUserName().equals("admin") && user.getUserPswd().equals("admin")
-				&& user.getAuthCode().equals("admin"))
+				&& user.getAuthCode().equals("admin")){
+			session.setAttribute("USER", user);
 			return "redirect:/admin/index";
+		}
 		return "redirect:/admin/login";
 	}
 }
